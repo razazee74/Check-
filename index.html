@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Profile Card Clone</title>
+    <style>
+        /* --- Reset & Base Styles --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            /* Background Grey jaisa screenshot mein hai */
+            background-color: #262626; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* --- Main Card --- */
+        .profile-card {
+            background-color: #000000; /* Pitch Black Card */
+            width: 100%;
+            max-width: 600px;
+            padding: 25px 30px;
+            border-radius: 30px; /* Rounded corners like screenshot */
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        /* --- Left Side: Profile Picture --- */
+        .profile-pic-container {
+            flex-shrink: 0;
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            /* Instagram Logo Gradient Background */
+            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+            padding: 4px; /* White ring space */
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-pic::after {
+            content: '';
+            position: absolute;
+            top: 4px; left: 4px; right: 4px; bottom: 4px;
+            background: #fff; /* White gap between gradient and image */
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .profile-img-inner {
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            border-radius: 50%;
+            z-index: 2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            /* Using SVG as background to mimic the logo inside */
+        }
+        
+        /* Simulating the Instagram Icon inside the circle */
+        .insta-icon-svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* --- Right Side: Info --- */
+        .profile-info {
+            flex-grow: 1;
+            color: #fff;
+        }
+
+        /* Top Row: Username, Verified, Follow Button, Dots */
+        .top-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .username {
+            font-size: 20px;
+            font-weight: 400; /* Regular weight */
+            margin-right: 5px;
+        }
+
+        .verified-badge {
+            width: 18px;
+            height: 18px;
+            fill: #0095f6; /* Official Blue Tick Color */
+            margin-right: 15px;
+        }
+
+        .follow-btn {
+            background-color: #0095f6;
+            color: #fff;
+            border: none;
+            padding: 7px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .follow-btn:hover {
+            background-color: #0074cc;
+        }
+
+        .options-dots {
+            color: #fff;
+            font-size: 20px;
+            margin-left: 10px;
+            cursor: pointer;
+            letter-spacing: 2px;
+            font-weight: bold;
+        }
+
+        /* Stats Row */
+        .stats-row {
+            display: flex;
+            gap: 25px;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .stats-row span {
+            display: inline-block;
+        }
+
+        .stats-row strong {
+            font-weight: 600;
+        }
+
+        /* Name Row */
+        .name-row {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 500px) {
+            .profile-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+                width: 90%;
+            }
+            .top-row {
+                justify-content: center;
+            }
+            .stats-row {
+                justify-content: center;
+                gap: 15px;
+                font-size: 14px;
+            }
+            .profile-pic {
+                width: 100px;
+                height: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="profile-card">
+        <div class="profile-pic-container">
+            <div class="profile-pic">
+                <div class="profile-img-inner">
+                    <svg viewBox="0 0 24 24" class="insta-icon-svg" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="instaGrad" x1="2" y1="21" x2="22" y2="3" gradientUnits="userSpaceOnUse">
+                                <stop offset="0%" stop-color="#fdf497" />
+                                <stop offset="5%" stop-color="#fdf497" />
+                                <stop offset="45%" stop-color="#fd5949" />
+                                <stop offset="60%" stop-color="#d6249f" />
+                                <stop offset="90%" stop-color="#285AEB" />
+                            </linearGradient>
+                        </defs>
+                        <rect width="24" height="24" fill="url(#instaGrad)"/>
+                        <path fill="#fff" d="M12 7C9.23858 7 7 9.23858 7 12C7 14.7614 9.23858 17 12 17C14.7614 17 17 14.7614 17 12C17 9.23858 14.7614 7 12 7ZM12 15.5C10.067 15.5 8.5 13.933 8.5 12C8.5 10.067 10.067 8.5 12 8.5C13.933 8.5 15.5 10.067 15.5 12C15.5 13.933 13.933 15.5 12 15.5Z" />
+                        <path fill="#fff" d="M17 2H7C4.23858 2 2 4.23858 2 7V17C2 19.7614 4.23858 22 7 22H17C19.7614 22 22 19.7614 22 17V7C22 4.23858 19.7614 2 17 2ZM12 18.5C8.41015 18.5 5.5 15.5899 5.5 12C5.5 8.41015 8.41015 5.5 12 5.5C15.5899 5.5 18.5 8.41015 18.5 12C18.5 15.5899 15.5899 18.5 12 18.5ZM18.5 6.75C17.9477 6.75 17.5 6.30229 17.5 5.75C17.5 5.19772 17.9477 4.75 18.5 4.75C19.0523 4.75 19.5 5.19772 19.5 5.75C19.5 6.30229 19.0523 6.75 18.5 6.75Z" />
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <div class="profile-info">
+            <div class="top-row">
+                <span class="username">instagram</span>
+                <svg class="verified-badge" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M12.0001 22.25C11.6429 22.2514 11.2952 22.1332 11.0001 21.91L8.33012 19.95C7.79468 19.5594 7.12643 19.3879 6.47012 19.47L3.18012 19.89C2.80911 19.9367 2.43405 19.8465 2.12239 19.6355C1.81072 19.4244 1.58284 19.1065 1.48012 18.74L0.550116 15.53C0.366479 14.8878 0.446823 14.2046 0.770116 13.62L2.41012 10.68C2.59253 10.3541 2.66258 9.98064 2.61012 9.61001L2.17012 6.33001C2.12061 5.95924 2.21323 5.58661 2.43048 5.2828C2.64773 4.97899 2.97444 4.76517 3.35012 4.68001L6.60012 3.93001C7.25178 3.77797 7.82869 3.39803 8.21012 2.87001L10.1201 0.230009C10.3347 -0.067343 10.6587 -0.233521 11.0001 -0.221503C11.3415 -0.209485 11.6636 -0.0205869 11.8701 0.290009L13.7901 3.16001C14.1715 3.73199 14.7719 4.10321 15.4501 4.17001L18.7301 4.49001C19.1009 4.52646 19.4452 4.70732 19.6896 4.99395C19.934 5.28059 20.0593 5.65042 20.0401 6.02001L19.8501 9.32001C19.8133 9.9818 20.0543 10.6309 20.5201 11.12L22.8601 13.58C23.1235 13.8569 23.2558 14.2372 23.2274 14.6195C23.199 15.0019 23.0123 15.3546 22.7201 15.58L20.1001 17.59C19.5772 17.9933 19.2323 18.5916 19.1401 19.24L18.6901 22.46C18.6387 22.8318 18.4528 23.1754 18.1669 23.4262C17.881 23.677 17.5144 23.8177 17.1351 23.822H17.0701C16.6905 23.8122 16.3242 23.6644 16.0401 23.41L13.5701 21.23C13.0805 20.7963 12.4373 20.5539 11.7801 20.5539C11.123 20.5539 10.4797 20.7963 9.99012 21.23L9.67012 21.51L11.7501 22.21C11.8327 22.238 11.9163 22.2515 12.0001 22.25ZM10.2901 12.55L17.2901 5.55001L18.7001 6.96001L10.2901 15.37L5.99012 11.07L7.40012 9.66001L10.2901 12.55Z" />
+                </svg>
+                
+                <button class="follow-btn" onclick="toggleFollow(this)">Follow</button>
+                
+                <div class="options-dots">
+                    <svg aria-label="Options" fill="#fff" height="24" role="img" viewBox="0 0 24 24" width="24">
+                        <circle cx="12" cy="12" r="1.5"></circle>
+                        <circle cx="6" cy="12" r="1.5"></circle>
+                        <circle cx="18" cy="12" r="1.5"></circle>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="stats-row">
+                <span><strong>8,102</strong> posts</span>
+                <span><strong>694.3M</strong> followers</span>
+                <span><strong>213</strong> following</span>
+            </div>
+
+            <div class="name-row">
+                Instagram
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleFollow(btn) {
+            if (btn.innerText === "Follow") {
+                btn.innerText = "Following";
+                btn.style.backgroundColor = "#dbdbdb"; /* Grey button when following */
+                btn.style.color = "#000";
+            } else {
+                btn.innerText = "Follow";
+                btn.style.backgroundColor = "#0095f6";
+                btn.style.color = "#fff";
+            }
+        }
+    </script>
+
+</body>
+</html>
