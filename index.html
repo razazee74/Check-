@@ -28,7 +28,7 @@
             width: 100%;
             max-width: 600px;
             padding: 25px 30px;
-            border-radius: 30px; /* Rounded corners like screenshot */
+            border-radius: 30px; /* Rounded corners */
             display: flex;
             align-items: center;
             gap: 30px;
@@ -44,7 +44,7 @@
             width: 150px;
             height: 150px;
             border-radius: 50%;
-            /* Instagram Logo Gradient Background */
+            /* Instagram Logo Gradient Background Ring */
             background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
             padding: 4px; /* White ring space */
             position: relative;
@@ -57,7 +57,7 @@
             content: '';
             position: absolute;
             top: 4px; left: 4px; right: 4px; bottom: 4px;
-            background: #fff; /* White gap between gradient and image */
+            background: #fff; /* White gap */
             border-radius: 50%;
             z-index: 1;
         }
@@ -72,10 +72,9 @@
             justify-content: center;
             align-items: center;
             overflow: hidden;
-            /* Using SVG as background to mimic the logo inside */
         }
         
-        /* Simulating the Instagram Icon inside the circle */
+        /* Instagram Icon inside the circle */
         .insta-icon-svg {
             width: 100%;
             height: 100%;
@@ -87,26 +86,29 @@
             color: #fff;
         }
 
-        /* Top Row: Username, Verified, Follow Button, Dots */
+        /* Top Row */
         .top-row {
             display: flex;
             align-items: center;
             margin-bottom: 20px;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 8px; /* Adjusted gap */
         }
 
         .username {
             font-size: 20px;
-            font-weight: 400; /* Regular weight */
-            margin-right: 5px;
+            font-weight: 400;
+            margin-right: 2px;
         }
 
+        /* Verified Badge Style */
         .verified-badge {
             width: 18px;
             height: 18px;
-            fill: #0095f6; /* Official Blue Tick Color */
+            color: #0095f6; /* Official Blue */
             margin-right: 15px;
+            display: flex;
+            align-items: center;
         }
 
         .follow-btn {
@@ -127,11 +129,10 @@
 
         .options-dots {
             color: #fff;
-            font-size: 20px;
             margin-left: 10px;
             cursor: pointer;
-            letter-spacing: 2px;
-            font-weight: bold;
+            display: flex;
+            align-items: center;
         }
 
         /* Stats Row */
@@ -156,7 +157,7 @@
             font-weight: 600;
         }
 
-        /* --- Responsive Design --- */
+        /* --- Responsive --- */
         @media (max-width: 500px) {
             .profile-card {
                 flex-direction: column;
@@ -206,10 +207,15 @@
         <div class="profile-info">
             <div class="top-row">
                 <span class="username">instagram</span>
-                <svg class="verified-badge" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M12.0001 22.25C11.6429 22.2514 11.2952 22.1332 11.0001 21.91L8.33012 19.95C7.79468 19.5594 7.12643 19.3879 6.47012 19.47L3.18012 19.89C2.80911 19.9367 2.43405 19.8465 2.12239 19.6355C1.81072 19.4244 1.58284 19.1065 1.48012 18.74L0.550116 15.53C0.366479 14.8878 0.446823 14.2046 0.770116 13.62L2.41012 10.68C2.59253 10.3541 2.66258 9.98064 2.61012 9.61001L2.17012 6.33001C2.12061 5.95924 2.21323 5.58661 2.43048 5.2828C2.64773 4.97899 2.97444 4.76517 3.35012 4.68001L6.60012 3.93001C7.25178 3.77797 7.82869 3.39803 8.21012 2.87001L10.1201 0.230009C10.3347 -0.067343 10.6587 -0.233521 11.0001 -0.221503C11.3415 -0.209485 11.6636 -0.0205869 11.8701 0.290009L13.7901 3.16001C14.1715 3.73199 14.7719 4.10321 15.4501 4.17001L18.7301 4.49001C19.1009 4.52646 19.4452 4.70732 19.6896 4.99395C19.934 5.28059 20.0593 5.65042 20.0401 6.02001L19.8501 9.32001C19.8133 9.9818 20.0543 10.6309 20.5201 11.12L22.8601 13.58C23.1235 13.8569 23.2558 14.2372 23.2274 14.6195C23.199 15.0019 23.0123 15.3546 22.7201 15.58L20.1001 17.59C19.5772 17.9933 19.2323 18.5916 19.1401 19.24L18.6901 22.46C18.6387 22.8318 18.4528 23.1754 18.1669 23.4262C17.881 23.677 17.5144 23.8177 17.1351 23.822H17.0701C16.6905 23.8122 16.3242 23.6644 16.0401 23.41L13.5701 21.23C13.0805 20.7963 12.4373 20.5539 11.7801 20.5539C11.123 20.5539 10.4797 20.7963 9.99012 21.23L9.67012 21.51L11.7501 22.21C11.8327 22.238 11.9163 22.2515 12.0001 22.25ZM10.2901 12.55L17.2901 5.55001L18.7001 6.96001L10.2901 15.37L5.99012 11.07L7.40012 9.66001L10.2901 12.55Z" />
-                </svg>
                 
+                <div class="verified-badge">
+                   <svg aria-label="Verified" fill="currentColor" height="18" role="img" viewBox="0 0 40 40" width="18">
+                        <title>Verified</title>
+                        <path d="M19.998 3.094 14.638 0l-2.972 5.15H5.432v6.354L0 14.64 3.094 20 0 25.359l5.432 3.137v5.905h5.975L14.638 40l5.36-3.094L25.358 40l3.232-5.6h6.162v-6.01L40 25.359 36.905 20 40 14.641l-5.248-3.137V5.15h-6.162l-3.547-5.15-5.045 3.094Z"></path>
+                        <path d="M13.469 26.898a1.312 1.312 0 0 1-.969-.38L7.864 21.89a1.316 1.316 0 0 1 1.879-1.844l3.743 3.82 10.706-11.23a1.318 1.318 0 1 1 1.914 1.815l-11.69 12.267a1.326 1.326 0 0 1-.947.18Z" fill="#ffffff"></path>
+                   </svg>
+                </div>
+
                 <button class="follow-btn" onclick="toggleFollow(this)">Follow</button>
                 
                 <div class="options-dots">
@@ -237,7 +243,7 @@
         function toggleFollow(btn) {
             if (btn.innerText === "Follow") {
                 btn.innerText = "Following";
-                btn.style.backgroundColor = "#dbdbdb"; /* Grey button when following */
+                btn.style.backgroundColor = "#dbdbdb"; 
                 btn.style.color = "#000";
             } else {
                 btn.innerText = "Follow";
@@ -246,6 +252,5 @@
             }
         }
     </script>
-
 </body>
 </html>
