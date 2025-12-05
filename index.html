@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instagram Profile Card Final</title>
+    <title>Instagram Card Final Perfect</title>
     <style>
         /* --- Reset & Base Styles --- */
         * {
@@ -14,7 +14,7 @@
         }
 
         body {
-            background-color: #262626; /* Background Dark Grey */
+            background-color: #262626; 
             display: flex;
             justify-content: center;
             align-items: center;
@@ -24,9 +24,9 @@
 
         /* --- Main Card --- */
         .profile-card {
-            background-color: #000000; /* Pitch Black Card */
+            background-color: #000000;
             width: 100%;
-            max-width: 580px;
+            max-width: 580px; /* Thoda aur compact kiya */
             padding: 25px 30px;
             border-radius: 30px;
             display: flex;
@@ -44,9 +44,8 @@
             width: 150px;
             height: 150px;
             border-radius: 50%;
-            /* Instagram Gradient Ring */
             background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-            padding: 4px; /* White ring thickness */
+            padding: 4px;
             position: relative;
             display: flex;
             justify-content: center;
@@ -74,7 +73,6 @@
             overflow: hidden;
         }
         
-        /* Instagram Logo Icon inside Profile */
         .insta-icon-svg {
             width: 65%;
             height: 65%;
@@ -87,54 +85,49 @@
             min-width: 0;
         }
 
-        /* Top Row - SINGLE LINE (No Wrapping) */
+        /* Top Row - STRICTLY SINGLE LINE */
         .top-row {
             display: flex;
             align-items: center;
             margin-bottom: 15px;
-            flex-wrap: nowrap; /* Forces everything in one line */
-            gap: 8px;
+            flex-wrap: nowrap; /* Zabardasti ek line me rakhega */
+            gap: 8px; /* Elements ke beech ka gap */
         }
 
         .username {
             font-size: 20px;
             font-weight: 400;
             white-space: nowrap;
-            margin-right: 4px;
+            margin-right: 2px; /* Thoda sa gap badge ke liye */
         }
 
-        /* Verified Badge - Perfect Shape + Black Tick */
+        /* Verified Badge Wrapper - Fixed Size */
         .verified-badge {
-            width: 20px;
-            height: 20px;
-            color: #0095f6; /* Blue Color */
+            width: 18px; /* Size chota kiya aapke screenshot ke hisaab se */
+            height: 18px;
+            color: #0095f6;
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-shrink: 0;
-            margin-right: 12px;
+            flex-shrink: 0; /* Badge pitchkega nahi */
+            margin-right: 12px; /* Follow button se doori */
         }
 
         .follow-btn {
             background-color: #0095f6;
             color: #fff;
             border: none;
-            padding: 6px 18px;
+            padding: 6px 16px;
             border-radius: 8px;
             font-weight: 600;
             font-size: 14px;
             cursor: pointer;
             white-space: nowrap;
-            transition: background 0.2s;
-        }
-
-        .follow-btn:hover {
-            background-color: #0074cc;
         }
 
         .options-dots {
             color: #fff;
-            margin-left: 10px;
+            margin-left: 8px;
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -156,13 +149,12 @@
             font-weight: 600;
         }
 
-        /* Name Row */
         .name-row {
             font-size: 15px;
             font-weight: 600;
         }
 
-        /* --- Mobile Responsiveness --- */
+        /* --- MOBILE TWEAKS --- */
         @media (max-width: 600px) {
             .profile-card {
                 padding: 15px;
@@ -179,8 +171,8 @@
             }
             
             .verified-badge {
-                width: 18px;
-                height: 18px;
+                width: 16px; /* Mobile pe aur chota */
+                height: 16px;
                 margin-right: 8px;
             }
             
@@ -194,8 +186,19 @@
             }
             
             .follow-btn {
-                padding: 5px 14px;
+                padding: 5px 12px;
                 font-size: 13px;
+            }
+        }
+        
+        @media (max-width: 380px) {
+             .profile-pic {
+                width: 70px;
+                height: 70px;
+            }
+            .stats-row {
+                flex-wrap: wrap;
+                gap: 8px;
             }
         }
     </style>
@@ -229,10 +232,9 @@
                 <span class="username">instagram</span>
                 
                 <div class="verified-badge">
-                   <svg viewBox="0 0 24 24" width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path fill="#0095f6" d="M12.0001 2C6.47725 2 2.00012 6.47715 2.00012 12C2.00012 17.5228 6.47725 22 12.0001 22C17.523 22 22.0001 17.5228 22.0001 12C22.0001 6.47715 17.523 2 12.0001 2ZM10.593 16.2929L6.29302 11.9929C5.90302 11.6029 5.90302 10.9729 6.29302 10.5829C6.68302 10.1929 7.31302 10.1929 7.70302 10.5829L11.293 14.1729L16.293 9.17293C16.683 8.78293 17.313 8.78293 17.703 9.17293C18.093 9.56293 18.093 10.1929 17.703 10.5829L12.003 16.2829C11.613 16.6729 10.983 16.6829 10.593 16.2929Z"/>
-                        <path fill="#0095f6" d="M21.05 13.9c.27-.9.96-1.59 1.86-1.86a.6.6 0 0 0 0-1.14c-.9-.27-1.59-.96-1.86-1.86a2.6 2.6 0 0 1 0-1.5c.27-.9.96-1.59 1.86-1.86.37-.11.37-.64 0-.75-.9-.27-1.59-.96-1.86-1.86a2.6 2.6 0 0 1-1.5 0c-.27-.9-.96-1.59-1.86-1.86-.37-.11-.64.37-.75.75-.27.9-.96 1.59-1.86 1.86a2.6 2.6 0 0 1-1.5 0c-.27.9-.96 1.59-1.86 1.86-.37.11-.37.64 0 .75.9.27 1.59.96 1.86 1.86a2.6 2.6 0 0 1 0 1.5c-.27.9-.96 1.59-1.86 1.86-.37.11-.37.64 0 .75.9.27 1.59.96 1.86 1.86a2.6 2.6 0 0 1 1.5 0c.27.9.96 1.59 1.86 1.86.37.11.64-.37.75-.75.27-.9.96-1.59 1.86-1.86a2.6 2.6 0 0 1 1.5 0c.27-.9.96-1.59 1.86-1.86.37-.11.37-.64 0-.75zM10.01 15.28l-3.9-3.9a1 1 0 0 1 1.41-1.41l2.13 2.13 5.31-5.31a1 1 0 0 1 1.41 1.41l-7.07 7.07a1 1 0 0 1-1.29 0z"/>
-                        <path fill="#000000" d="M10.01 15.28l-3.9-3.9a1 1 0 0 1 1.41-1.41l2.13 2.13 5.31-5.31a1 1 0 0 1 1.41 1.41l-7.07 7.07a1 1 0 0 1-1.29 0z"/>
+                   <svg viewBox="0 0 40 40" width="100%" height="100%" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill="#0095f6" d="M19.998 3.094 14.638 0l-2.972 5.15H5.432v6.354L0 14.64 3.094 20 0 25.359l5.432 3.137v5.905h5.975L14.638 40l5.36-3.094L25.358 40l3.232-5.6h6.162v-6.01L40 25.359 36.905 20 40 14.641l-5.248-3.137V5.15h-6.162l-3.547-5.15-5.045 3.094Z"/>
+                        <path fill="#000000" d="M13.469 26.898a1.312 1.312 0 0 1-.969-.38L7.864 21.89a1.316 1.316 0 0 1 1.879-1.844l3.743 3.82 10.706-11.23a1.318 1.318 0 1 1 1.914 1.815l-11.69 12.267a1.326 1.326 0 0 1-.947.18Z"/>
                    </svg>
                 </div>
 
