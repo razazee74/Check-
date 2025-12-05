@@ -3,37 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instagram 5 Layout Shuffle</title>
+    <title>Instagram 7 BIG Layouts Shuffle</title>
     <style>
         /* --- Base Settings --- */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
         body {
-            background-color: #262626;
+            background-color: #121212; /* Thoda aur dark background */
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            padding: 10px;
-            gap: 20px;
+            padding: 20px;
+            gap: 30px;
         }
 
-        /* --- Main Container --- */
+        /* --- Main BIG Container --- */
         .card-container {
             background-color: #000000;
             width: 100%;
-            max-width: 580px;
-            border-radius: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            /* SIZE INCREASED SIGNIFICANTLY HERE */
+            max-width: 900px; 
+            border-radius: 40px; /* Bigger corners */
+            box-shadow: 0 20px 50px rgba(0,0,0,0.7);
             overflow: hidden;
             position: relative;
-            min-height: 200px; /* Min height to prevent jumping too much */
-            transition: all 0.3s ease;
+            min-height: 250px;
+            transition: all 0.4s ease;
+            border: 1px solid #333;
         }
 
         .hidden { display: none !important; }
 
-        /* --- Shared Components --- */
+        /* --- Shared Components (Scaled Up) --- */
         .text-white { color: #fff; }
         .text-grey { color: #a8a8a8; }
         
@@ -41,91 +43,120 @@
         .profile-pic {
             border-radius: 50%;
             background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-            padding: 3px; position: relative; display: flex; justify-content: center; align-items: center; flex-shrink: 0;
+            padding: 4px; position: relative; display: flex; justify-content: center; align-items: center; flex-shrink: 0;
         }
-        .profile-pic::after { content: ''; position: absolute; top: 3px; left: 3px; right: 3px; bottom: 3px; background: #fff; border-radius: 50%; z-index: 1; }
+        .profile-pic::after { content: ''; position: absolute; top: 4px; left: 4px; right: 4px; bottom: 4px; background: #fff; border-radius: 50%; z-index: 1; }
         .profile-img-inner { width: 100%; height: 100%; background: #fff; border-radius: 50%; z-index: 2; display: flex; justify-content: center; align-items: center; overflow: hidden; }
         .insta-icon-svg { width: 65%; height: 65%; }
 
-        /* Badge (Common) */
-        .verified-badge { width: 18px; height: 18px; color: #0095f6; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        /* Badge (Common - slightly bigger) */
+        .verified-badge { width: 22px; height: 22px; color: #0095f6; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 
-        /* Follow Button (Common) */
+        /* Follow Button (Common - Bigger) */
         .follow-btn {
-            background-color: #0095f6; color: #fff; border: none; padding: 6px 16px; border-radius: 8px; font-weight: 600; font-size: 13px; cursor: pointer; white-space: nowrap;
+            background-color: #0095f6; color: #fff; border: none; padding: 10px 24px; border-radius: 12px; font-weight: 600; font-size: 16px; cursor: pointer; white-space: nowrap;
         }
 
-        /* ================= LAYOUT 1: ORIGINAL (Horizontal) ================= */
-        .layout-1 { padding: 25px 30px; display: flex; align-items: center; gap: 20px; }
-        .layout-1 .profile-pic { width: 100px; height: 100px; }
-        .layout-1 .top-row { display: flex; align-items: center; margin-bottom: 10px; flex-wrap: nowrap; gap: 8px; }
-        .layout-1 .username { font-size: 18px; color: #fff; margin-right: 2px; }
-        .layout-1 .stats-row { display: flex; gap: 15px; font-size: 14px; color: #fff; }
-        .layout-1 .name-row { font-size: 14px; font-weight: 600; color: #fff; margin-top: 8px;}
+        /* ================= LAYOUT 1: ORIGINAL (Horizontal - BIGGER) ================= */
+        .layout-1 { padding: 40px; display: flex; align-items: center; gap: 35px; }
+        .layout-1 .profile-pic { width: 150px; height: 150px; }
+        .layout-1 .top-row { display: flex; align-items: center; margin-bottom: 15px; flex-wrap: nowrap; gap: 10px; }
+        .layout-1 .username { font-size: 24px; color: #fff; margin-right: 4px; }
+        .layout-1 .stats-row { display: flex; gap: 25px; font-size: 18px; color: #fff; }
+        .layout-1 .name-row { font-size: 18px; font-weight: 600; color: #fff; margin-top: 12px;}
 
 
-        /* ================= LAYOUT 2: MOBILE HEADER ================= */
+        /* ================= LAYOUT 2: MOBILE HEADER (BIGGER) ================= */
         .layout-2 { display: flex; flex-direction: column; width: 100%; }
-        .layout-2 .header-bar { display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; border-bottom: 1px solid #1a1a1a; }
-        .layout-2 .header-title { display: flex; align-items: center; gap: 5px; font-size: 16px; font-weight: 600; color: #fff; }
-        .layout-2 .body-section { padding: 20px; display: flex; align-items: center; gap: 20px; }
-        .layout-2 .profile-pic { width: 85px; height: 85px; }
+        .layout-2 .header-bar { display: flex; justify-content: space-between; align-items: center; padding: 20px 30px; border-bottom: 2px solid #1a1a1a; }
+        .layout-2 .header-title { display: flex; align-items: center; gap: 8px; font-size: 20px; font-weight: 600; color: #fff; }
+        .layout-2 .body-section { padding: 40px; display: flex; align-items: center; gap: 30px; }
+        .layout-2 .profile-pic { width: 120px; height: 120px; }
         .layout-2 .info-section { color: #fff; }
-        .layout-2 .mobile-stats { display: flex; gap: 15px; font-size: 13px; margin-top: 5px; }
+        .layout-2 .mobile-stats { display: flex; gap: 30px; font-size: 16px; margin-top: 15px; }
         .layout-2 .stat-item { display: flex; flex-direction: column; }
+        .layout-2 .stat-item strong { font-size: 20px; }
 
 
-        /* ================= LAYOUT 3: CENTERED FOCUS ================= */
-        .layout-3 { padding: 30px 20px; display: flex; flex-direction: column; align-items: center; text-align: center; }
-        .layout-3 .profile-pic { width: 110px; height: 110px; margin-bottom: 15px; }
-        .layout-3 .user-line { display: flex; align-items: center; gap: 5px; margin-bottom: 5px; }
-        .layout-3 .username { font-size: 20px; color: #fff; font-weight: 600; }
-        .layout-3 .name-sub { color: #a8a8a8; font-size: 14px; margin-bottom: 15px; }
-        .layout-3 .stats-bar { display: flex; gap: 25px; margin-bottom: 20px; border-top: 1px solid #333; border-bottom: 1px solid #333; padding: 10px 0; width: 100%; justify-content: center; }
-        .layout-3 .stat-box { display: flex; flex-direction: column; color: #fff; font-size: 13px; }
-        .layout-3 .stat-box strong { font-size: 16px; }
+        /* ================= LAYOUT 3: CENTERED FOCUS (BIGGER) ================= */
+        .layout-3 { padding: 50px 30px; display: flex; flex-direction: column; align-items: center; text-align: center; }
+        .layout-3 .profile-pic { width: 160px; height: 160px; margin-bottom: 20px; }
+        .layout-3 .user-line { display: flex; align-items: center; gap: 8px; margin-bottom: 5px; }
+        .layout-3 .username { font-size: 28px; color: #fff; font-weight: 600; }
+        .layout-3 .name-sub { color: #a8a8a8; font-size: 18px; margin-bottom: 25px; }
+        .layout-3 .stats-bar { display: flex; gap: 40px; margin-bottom: 30px; border-top: 2px solid #333; border-bottom: 2px solid #333; padding: 20px 0; width: 80%; justify-content: center; }
+        .layout-3 .stat-box { display: flex; flex-direction: column; color: #fff; font-size: 16px; }
+        .layout-3 .stat-box strong { font-size: 24px; }
 
 
-        /* ================= LAYOUT 4: BANNER STYLE ================= */
+        /* ================= LAYOUT 4: BANNER STYLE (BIGGER) ================= */
         .layout-4 { width: 100%; display: flex; flex-direction: column; }
-        .layout-4 .banner { height: 80px; background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d); width: 100%; }
-        .layout-4 .content { padding: 0 20px 20px 20px; margin-top: -40px; display: flex; flex-direction: column; }
+        .layout-4 .banner { height: 120px; background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d); width: 100%; }
+        .layout-4 .content { padding: 0 40px 40px 40px; margin-top: -60px; display: flex; flex-direction: column; }
         .layout-4 .top-part { display: flex; justify-content: space-between; align-items: flex-end; }
-        .layout-4 .profile-pic { width: 90px; height: 90px; border: 4px solid #000; background: none; padding: 0; } /* Remove ring, add border */
-        .layout-4 .profile-pic::after { display: none; } /* No gap needed */
+        .layout-4 .profile-pic { width: 130px; height: 130px; border: 6px solid #000; background: none; padding: 0; }
+        .layout-4 .profile-pic::after { display: none; }
         .layout-4 .profile-img-inner { border: none; }
-        .layout-4 .action-btn { margin-bottom: 10px; }
-        .layout-4 .info { margin-top: 10px; color: #fff; }
-        .layout-4 .user-row { display: flex; align-items: center; gap: 5px; font-size: 18px; font-weight: 600; }
-        .layout-4 .stats-line { display: flex; gap: 15px; font-size: 14px; margin-top: 8px; color: #ccc; }
+        .layout-4 .action-btn { margin-bottom: 15px; }
+        .layout-4 .info { margin-top: 20px; color: #fff; }
+        .layout-4 .user-row { display: flex; align-items: center; gap: 8px; font-size: 24px; font-weight: 600; }
+        .layout-4 .stats-line { display: flex; gap: 25px; font-size: 18px; margin-top: 15px; color: #ccc; }
 
 
-        /* ================= LAYOUT 5: BOXED STATS (Modern) ================= */
-        .layout-5 { padding: 25px; display: flex; flex-direction: column; gap: 15px; }
-        .layout-5 .header { display: flex; align-items: center; gap: 15px; }
-        .layout-5 .profile-pic { width: 80px; height: 80px; }
+        /* ================= LAYOUT 5: BOXED GRID (BIGGER) ================= */
+        .layout-5 { padding: 40px; display: flex; flex-direction: column; gap: 30px; }
+        .layout-5 .header { display: flex; align-items: center; gap: 25px; }
+        .layout-5 .profile-pic { width: 110px; height: 110px; }
         .layout-5 .names { display: flex; flex-direction: column; justify-content: center; }
-        .layout-5 .username { font-size: 18px; color: #fff; display: flex; align-items: center; gap: 5px; }
-        .layout-5 .full-name { font-size: 14px; color: #888; }
+        .layout-5 .username { font-size: 24px; color: #fff; display: flex; align-items: center; gap: 8px; font-weight: 600; }
+        .layout-5 .full-name { font-size: 18px; color: #888; margin-top: 5px; }
         
-        .layout-5 .stats-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
-        .layout-5 .stat-card { background: #1a1a1a; padding: 10px; border-radius: 10px; text-align: center; color: #fff; }
-        .layout-5 .stat-card strong { display: block; font-size: 16px; margin-bottom: 2px; }
-        .layout-5 .stat-card span { font-size: 11px; color: #888; text-transform: uppercase; }
+        .layout-5 .stats-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+        .layout-5 .stat-card { background: #1a1a1a; padding: 25px; border-radius: 20px; text-align: center; color: #fff; border: 2px solid #333; }
+        .layout-5 .stat-card strong { display: block; font-size: 28px; margin-bottom: 5px; }
+        .layout-5 .stat-card span { font-size: 14px; color: #888; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* ================= NEW LAYOUT 6: MINIMALIST BIG STATS ================= */
+        .layout-6 { padding: 50px; display: flex; align-items: center; justify-content: space-between; }
+        .layout-6 .left-id { display: flex; flex-direction: column; align-items: flex-start; gap: 15px; }
+        .layout-6 .profile-pic { width: 140px; height: 140px; }
+        .layout-6 .username-block { display: flex; align-items: center; gap: 8px; font-size: 22px; color: #fff; }
+        
+        .layout-6 .right-stats { display: flex; flex-direction: column; align-items: flex-end; gap: 20px; color: #fff; }
+        .layout-6 .big-stat { text-align: right; }
+        .layout-6 .big-number { font-size: 48px; font-weight: 800; line-height: 1; display: block; }
+        .layout-6 .stat-label { font-size: 16px; color: #888; text-transform: uppercase; }
+
+         /* ================= NEW LAYOUT 7: SPLIT VIEW ================= */
+        .layout-7 { display: flex; height: 350px; }
+        .layout-7 .left-split { width: 40%; background: #0a0a0a; padding: 40px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; border-right: 2px solid #222; }
+        .layout-7 .profile-pic { width: 160px; height: 160px; margin-bottom: 20px; }
+        .layout-7 .user-split { display: flex; align-items: center; gap: 8px; font-size: 24px; color: #fff; margin-bottom: 10px; }
+        
+        .layout-7 .right-split { width: 60%; padding: 40px; display: flex; flex-direction: column; justify-content: center; gap: 30px; color: #fff; }
+        .layout-7 .split-stat { display: flex; align-items: baseline; justify-content: space-between; border-bottom: 1px solid #333; padding-bottom: 10px; }
+        .layout-7 .split-num { font-size: 32px; font-weight: 700; }
+        .layout-7 .split-lbl { font-size: 16px; color: #888; }
 
 
-        /* --- Shuffle Button --- */
-        .shuffle-container { width: 100%; max-width: 580px; display: flex; justify-content: flex-end; }
-        .shuffle-btn { background-color: #333; color: #fff; border: none; width: 50px; height: 50px; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.3); transition: 0.3s; }
+        /* --- Shuffle Button (Bigger) --- */
+        .shuffle-container { width: 100%; max-width: 900px; display: flex; justify-content: flex-end; }
+        .shuffle-btn { background-color: #333; color: #fff; border: none; width: 70px; height: 70px; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; box-shadow: 0 10px 25px rgba(0,0,0,0.5); transition: 0.3s; }
         .shuffle-btn:active { transform: scale(0.9); }
+        .shuffle-btn svg { width: 32px; height: 32px; }
         .spinning { animation: spin 0.5s ease-in-out; }
         @keyframes spin { 100% { transform: rotate(360deg); } }
 
-        /* --- Mobile Responsive --- */
-        @media (max-width: 400px) {
-            .layout-1 { padding: 15px; gap: 15px; }
-            .layout-1 .profile-pic { width: 80px; height: 80px; }
-            .stats-row span { font-size: 12px; }
+        /* --- Mobile Responsive Adjustments for Big Sizes --- */
+        @media (max-width: 768px) {
+            .card-container { border-radius: 25px; }
+            /* Scale down fonts and pics slightly on tablets/phones so they fit */
+            .layout-1 { padding: 25px; gap: 20px; } .layout-1 .profile-pic { width: 100px; height: 100px; } .layout-1 .username { font-size: 20px; } .layout-1 .stats-row { font-size: 15px; }
+            .layout-2 .body-section { padding: 25px; } .layout-2 .profile-pic { width: 90px; height: 90px; }
+            .layout-3 { padding: 30px 20px; } .layout-3 .profile-pic { width: 120px; height: 120px; }
+            .layout-5 .stat-card strong { font-size: 20px; }
+            .layout-6 { padding: 30px; flex-direction: column; align-items: flex-start; gap: 30px; } .layout-6 .right-stats { align-items: flex-start; text-align: left; } .layout-6 .big-stat { text-align: left; }
+            .layout-7 { flex-direction: column; height: auto; } .layout-7 .left-split, .layout-7 .right-split { width: 100%; border-right: none; padding: 30px; } .layout-7 .left-split { border-bottom: 2px solid #222; }
         }
 
     </style>
@@ -143,6 +174,7 @@
                  <defs><linearGradient id="gAll" x1="2" y1="21" x2="22" y2="3" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#fdf497"/><stop offset="5%" stop-color="#fdf497"/><stop offset="45%" stop-color="#fd5949"/><stop offset="60%" stop-color="#d6249f"/><stop offset="90%" stop-color="#285AEB"/></linearGradient></defs>
                 <rect width="24" height="24" fill="url(#gAll)"/><path fill="#fff" d="M12 7C9.23858 7 7 9.23858 7 12C7 14.7614 9.23858 17 12 17C14.7614 17 17 14.7614 17 12C17 9.23858 14.7614 7 12 7ZM12 15.5C10.067 15.5 8.5 13.933 8.5 12C8.5 10.067 10.067 8.5 12 8.5C13.933 8.5 15.5 10.067 15.5 12C15.5 13.933 13.933 15.5 12 15.5Z"/><path fill="#fff" d="M17 2H7C4.23858 2 2 4.23858 2 7V17C2 19.7614 4.23858 22 7 22H17C19.7614 22 22 19.7614 22 17V7C22 4.23858 19.7614 2 17 2ZM12 18.5C8.41015 18.5 5.5 15.5899 5.5 12C5.5 8.41015 8.41015 5.5 12 5.5C15.5899 5.5 18.5 8.41015 18.5 12C18.5 15.5899 15.5899 18.5 12 18.5ZM18.5 6.75C17.9477 6.75 17.5 6.30229 17.5 5.75C17.5 5.19772 17.9477 4.75 18.5 4.75C19.0523 4.75 19.5 5.19772 19.5 5.75C19.5 6.30229 19.0523 6.75 18.5 6.75Z"/>
             </symbol>
+             <symbol id="dots-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="1.5"></circle><circle cx="6" cy="12" r="1.5"></circle><circle cx="18" cy="12" r="1.5"></circle></symbol>
         </svg>
 
         <div id="layout-1" class="layout-1">
@@ -152,6 +184,7 @@
                     <span class="username">instagram</span>
                     <div class="verified-badge"><svg width="100%" height="100%"><use href="#badge-icon"></use></svg></div>
                     <button class="follow-btn">Follow</button>
+                    <svg class="options-dots" fill="#fff" height="24" width="24"><use href="#dots-icon"></use></svg>
                 </div>
                 <div class="stats-row">
                     <span><strong>8,102</strong> posts</span><span><strong>694.3M</strong> followers</span><span><strong>213</strong> following</span>
@@ -162,14 +195,14 @@
 
         <div id="layout-2" class="layout-2 hidden">
             <div class="header-bar">
-                <svg width="24" height="24" fill="#fff" viewBox="0 0 24 24"><path d="M21 17.502a.997.997 0 0 1-.707-.293L12 8.913l-8.293 8.296a1 1 0 1 1-1.414-1.414l9-9a1 1 0 0 1 1.414 0l9 9a.999.999 0 0 1-.707 1.707Z" transform="rotate(270 12 12)"></path></svg>
+                <svg width="28" height="28" fill="#fff" viewBox="0 0 24 24"><path d="M21 17.502a.997.997 0 0 1-.707-.293L12 8.913l-8.293 8.296a1 1 0 1 1-1.414-1.414l9-9a1 1 0 0 1 1.414 0l9 9a.999.999 0 0 1-.707 1.707Z" transform="rotate(270 12 12)"></path></svg>
                 <div class="header-title">instagram <div class="verified-badge"><svg width="100%" height="100%"><use href="#badge-icon"></use></svg></div></div>
-                <svg width="24" height="24" fill="#fff" viewBox="0 0 24 24"><circle cx="12" cy="12" r="1.5"></circle><circle cx="6" cy="12" r="1.5"></circle><circle cx="18" cy="12" r="1.5"></circle></svg>
+                 <svg fill="#fff" height="28" width="28"><use href="#dots-icon"></use></svg>
             </div>
             <div class="body-section">
                 <div class="profile-pic"><div class="profile-img-inner"><svg class="insta-icon-svg"><use href="#insta-logo"></use></svg></div></div>
                 <div class="info-section">
-                    <div style="font-weight:600;font-size:16px;">Instagram</div>
+                    <div style="font-weight:600;font-size:20px;">Instagram</div>
                     <div class="mobile-stats">
                         <div class="stat-item"><strong>8,259</strong> posts</div>
                         <div class="stat-item"><strong>697M</strong> followers</div>
@@ -191,7 +224,7 @@
                 <div class="stat-box"><strong>694.3M</strong>Followers</div>
                 <div class="stat-box"><strong>213</strong>Following</div>
             </div>
-            <button class="follow-btn" style="width: 100%; padding: 10px;">Follow</button>
+            <button class="follow-btn" style="width: 60%; padding: 15px;">Follow</button>
         </div>
 
         <div id="layout-4" class="layout-4 hidden">
@@ -203,7 +236,7 @@
                 </div>
                 <div class="info">
                     <div class="user-row">instagram <div class="verified-badge"><svg width="100%" height="100%"><use href="#badge-icon"></use></svg></div></div>
-                    <div style="color: #bbb; font-size:14px;">Instagram</div>
+                    <div style="color: #bbb; font-size:18px; margin-top:5px;">Instagram</div>
                     <div class="stats-line">
                         <span><strong>8K</strong> Posts</span>
                         <span><strong>694M</strong> Followers</span>
@@ -228,12 +261,44 @@
                 <div class="stat-card"><strong>213</strong><span>Following</span></div>
             </div>
         </div>
+        
+        <div id="layout-6" class="layout-6 hidden">
+            <div class="left-id">
+                 <div class="profile-pic"><div class="profile-img-inner"><svg class="insta-icon-svg"><use href="#insta-logo"></use></svg></div></div>
+                 <div class="username-block">instagram <div class="verified-badge"><svg width="100%" height="100%"><use href="#badge-icon"></use></svg></div></div>
+                 <button class="follow-btn">Follow</button>
+            </div>
+            <div class="right-stats">
+                <div class="big-stat">
+                    <span class="big-number">694.3M</span>
+                    <span class="stat-label">Followers</span>
+                </div>
+                <div class="big-stat">
+                    <span class="big-number">8,102</span>
+                    <span class="stat-label">Posts</span>
+                </div>
+            </div>
+        </div>
+
+         <div id="layout-7" class="layout-7 hidden">
+            <div class="left-split">
+                 <div class="profile-pic"><div class="profile-img-inner"><svg class="insta-icon-svg"><use href="#insta-logo"></use></svg></div></div>
+                 <div class="user-split">instagram <div class="verified-badge"><svg width="100%" height="100%"><use href="#badge-icon"></use></svg></div></div>
+                 <div style="color:#888; margin-bottom: 20px;">Instagram</div>
+                 <button class="follow-btn" style="width: 80%">Follow</button>
+            </div>
+            <div class="right-split">
+                <div class="split-stat"><span class="split-num">694.3M</span><span class="split-lbl">Followers</span></div>
+                <div class="split-stat"><span class="split-num">213</span><span class="split-lbl">Following</span></div>
+                <div class="split-stat" style="border:none"><span class="split-num">8,102</span><span class="split-lbl">Posts</span></div>
+            </div>
+        </div>
 
     </div>
 
     <div class="shuffle-container">
         <button id="shuffleBtn" class="shuffle-btn">
-            <svg style="width:24px;height:24px;fill:currentColor" viewBox="0 0 24 24"><path d="M10.59 9.17L5.41 4 4 5.41l5.17 5.17 1.42-1.41zM14.5 4l2.04 2.04L4 18.59 5.41 20 17.96 7.46 20 9.5V4h-5.5zm.33 9.41l-1.41 1.41 3.13 3.13L14.5 20H20v-5.5l-2.04 2.04-3.13-3.13z"/></svg>
+            <svg style="width:32px;height:32px;fill:currentColor" viewBox="0 0 24 24"><path d="M10.59 9.17L5.41 4 4 5.41l5.17 5.17 1.42-1.41zM14.5 4l2.04 2.04L4 18.59 5.41 20 17.96 7.46 20 9.5V4h-5.5zm.33 9.41l-1.41 1.41 3.13 3.13L14.5 20H20v-5.5l-2.04 2.04-3.13-3.13z"/></svg>
         </button>
     </div>
 
@@ -244,7 +309,9 @@
             document.getElementById('layout-2'),
             document.getElementById('layout-3'),
             document.getElementById('layout-4'),
-            document.getElementById('layout-5')
+            document.getElementById('layout-5'),
+            document.getElementById('layout-6'),
+            document.getElementById('layout-7')
         ];
         let currentIndex = 0;
 
@@ -265,3 +332,6 @@
     </script>
 </body>
 </html>
+
+
+   
